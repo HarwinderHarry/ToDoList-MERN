@@ -4,3 +4,11 @@ body{
   padding: 0;
   font-family: 'Fira Sans', sans-serif !important;
 }
+
+:root{
+  --gold-color:#EDB046;
+  --brown-color:#BA5112;
+  --white-color: #ffffff;
+  --text-color: #251814;
+  --grey-color:#B5B5B5;
+}

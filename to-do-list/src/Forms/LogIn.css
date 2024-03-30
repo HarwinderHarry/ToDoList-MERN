@@ -1,0 +1,84 @@
+div#loginFrom {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image:url('/public/images/backgroundImage.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+div#loginFrom .pageHeading {
+    margin: 25px 0;
+}
+
+div#loginFrom .pageHeading h1 {
+    font-size: 60px;
+    line-height: 75px;
+    color: var(--brown-color);
+    font-weight: 700;
+}
+div#loginFrom .pageHeading h4{
+    font-size: 20px;
+    line-height: 25px;
+    color: var(--brown-color);
+    font-weight: 500;
+}
+
+section#loginStart {
+    width: 40%;
+    height: 400px;
+    min-height: 380px;
+    background-color: var(--gold-color);
+    padding: 38px 55px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 16px #00000026;
+}
+
+section#loginStart h2 {
+    font-size: 40px;
+    color: var(--white-color);
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+section#loginStart form input.form-control {
+    box-shadow: 2px 2px 8px #0000002b;
+    border: none;
+    padding: 12px 20px;
+    margin-bottom:30px;
+}
+
+section#loginStart input::placeholder{
+color: var(--grey-color) !important;
+font-weight: 400;
+font-size: 14px;
+line-height: 25px;
+font-family: 'Fira Sans', sans-serif !important;
+}
+
+section#loginStart form button.btn.btn-primary {
+    border-radius: 12px;
+    background-color: var(--brown-color);
+    border: 0;
+    box-shadow: 2px 2px 6px #00000036;
+    width: 35%;
+    padding: 10px 0;
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+section#loginStart form p.last-line {
+    font-size: 12px;
+    color: var(--white-color);
+    margin-top: 8px;
+}
+
+section#loginStart form p.last-line a{
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--brown-color);
+}

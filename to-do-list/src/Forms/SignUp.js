@@ -14,29 +14,30 @@ const SignUp = () => {
         console.log ("email:" , email , "password:", password)
     };
   return (
-    <div id='loginFrom'>
-        <section id='loginStart'>
+    <div id='signupFrom'>
+        <div className='pageHeading'>
+            <h1>To-Do App</h1>
+            <h4>Start organizing your life day by day</h4>
+        </div>
+        <section id='signupStart'>
         <Form onSubmit={handleLogin}>
+        <h1>SignUp</h1>
         <Form.Group className="mb-3" controlId="formBasicEmail1">
-        <Form.Label>Name</Form.Label>
         <Form.Control type="text" placeholder="Enter your name" value={name} onChange={(e)=>setName(e.target.value) } required/>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicEmail2">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" placeholder="Enter email" value={email} onChange={(e)=>setEmail(e.target.value) } required/>
+        <Form.Control type="email" placeholder="Enter your email address" value={email} onChange={(e)=>setEmail(e.target.value) } required/>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" value={password} onChange={(e)=>setPassword(e.target.value)}  required />
+        <Form.Control type="password" placeholder="Enter your Password" value={password} onChange={(e)=>setPassword(e.target.value)}  required />
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicEmail3">
-        <Form.Label>Phone number</Form.Label>
         <Form.Control type="number" placeholder="Enter your phone number" value={phone} onChange={(e)=>setPhone(e.target.value) } required/>
       </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
+      <Form.Group className="mb-3" controlId="formBasicEmail" value={gender} onChange={(e)=>setGender(e.target.value) } required>
         <Form.Label>Gender</Form.Label>
         <Form.Check type='radio' id='radio1' label="Male" />
         <Form.Check type='radio' id='radio2' label="Female" />
@@ -48,6 +49,9 @@ const SignUp = () => {
       <Button variant="primary" type="submit">
         Submit
       </Button>
+      <p className="last-line">
+      Already have an account?<a href="/log-in">Sign in here.</a>
+        </p>
     </Form>
         </section>
     </div>
