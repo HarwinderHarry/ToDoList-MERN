@@ -1,0 +1,97 @@
+div#signupFrom {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image:url('/public/images/backgroundImage.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 50px;
+}
+
+div#signupFrom .pageHeading {
+    margin: 25px 0;
+}
+
+div#signupFrom .pageHeading h1 {
+    font-size: 60px;
+    line-height: 75px;
+    color: var(--brown-color);
+    font-weight: 700;
+}
+div#signupFrom .pageHeading h4{
+    font-size: 20px;
+    line-height: 25px;
+    color: var(--brown-color);
+    font-weight: 500;
+}
+
+section#signupStart {
+    width: 40%;
+    height: 650px;
+    min-height: 610px;
+    background-color: var(--gold-color);
+    padding: 38px 55px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 16px #00000026;
+}
+
+section#signupStart h2 {
+    font-size: 40px;
+    color: var(--white-color);
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+section#signupStart form input.form-control {
+    box-shadow: 2px 2px 8px #0000002b;
+    border: none;
+    padding: 12px 20px;
+    margin-bottom:30px;
+}
+
+section#signupStart input::placeholder{
+color: var(--grey-color) !important;
+font-weight: 400;
+font-size: 14px;
+line-height: 25px;
+font-family: 'Fira Sans', sans-serif !important;
+}
+
+section#signupStart form button.btn.btn-primary {
+    border-radius: 12px;
+    background-color: var(--brown-color);
+    border: 0;
+    box-shadow: 2px 2px 6px #00000036;
+    width: 35%;
+    padding: 10px 0;
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+section#signupStart form p.last-line {
+    font-size: 12px;
+    color: var(--white-color);
+    margin-top: 8px;
+}
+
+section#signupStart form p.last-line a{
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--brown-color);
+}
+
+section#signupStart .radio-btns {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 16px;
+}
+
+section#signupStart label.form-label {
+    font-weight: 700;
+    font-size: 18px;
+}

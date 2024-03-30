@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import {Form , Button} from 'react-bootstrap';
-import './LogIn.css';
+import './SignUp.css';
 
 const SignUp = () => {
     const [name, setName]= useState("");
@@ -21,7 +21,7 @@ const SignUp = () => {
         </div>
         <section id='signupStart'>
         <Form onSubmit={handleLogin}>
-        <h1>SignUp</h1>
+        <h2>SignUp</h2>
         <Form.Group className="mb-3" controlId="formBasicEmail1">
         <Form.Control type="text" placeholder="Enter your name" value={name} onChange={(e)=>setName(e.target.value) } required/>
       </Form.Group>
@@ -35,22 +35,19 @@ const SignUp = () => {
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicEmail3">
-        <Form.Control type="number" placeholder="Enter your phone number" value={phone} onChange={(e)=>setPhone(e.target.value) } required/>
+        <Form.Control type="tel" pattern="[0-9]{10}" maxLength={12} placeholder="Enter your phone number" value={phone} onChange={(e)=>setPhone(e.target.value) } required/>
       </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicEmail" value={gender} onChange={(e)=>setGender(e.target.value) } required>
+      <Form.Group className="mb-3 radio-btns" controlId="formBasicEmail" value={gender} onChange={(e)=>setGender(e.target.value) } required>
         <Form.Label>Gender</Form.Label>
         <Form.Check type='radio' id='radio1' label="Male" />
         <Form.Check type='radio' id='radio2' label="Female" />
         <Form.Check type='radio' id='radio3' label="Others" />
       </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Check me out" />
-      </Form.Group>
       <Button variant="primary" type="submit">
-        Submit
+        Sign Up
       </Button>
       <p className="last-line">
-      Already have an account?<a href="/log-in">Sign in here.</a>
+      Already have an account? <a href="/log-in">Sign in here.</a>
         </p>
     </Form>
         </section>

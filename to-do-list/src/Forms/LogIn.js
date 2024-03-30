@@ -27,7 +27,7 @@ const LogIn = () => {
         <Form.Control type="password" placeholder="Password" value={password} onChange={(e)=>setPassword(e.target.value)}  required />
       </Form.Group>
       <Button variant="primary" type="submit">
-        Submit
+        Log In
       </Button>
       <p className="last-line">
       Don’t have an account? <a href="/sign-up">Create here.</a>
