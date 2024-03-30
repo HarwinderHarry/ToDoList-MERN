@@ -50,20 +50,23 @@ app.post('/register', async (req,res)=>{
 
 //Singin
 
-app.post('/login',async (req,res)=>{
+app.post('/login', async (req,res)=>{
     try {
         const{email,password} =req.body;
-        const user = await userSchema.findOne({email:email, password:password});
-        console.log(user);
         if(!email || !password){
-            return res.status(404).send(
-            {
-                success:false,
-                message:'Invaild email or password',
-                error
+            return res.status(400).send("Please Add the correct details");
+        }
+        const userMatch = await userSchema.findOne({email:email});
+        // console.log(userMatch);
+        if(userMatch){
+            const passMatch = await bcrypt.compare(password,userMatch.password);
+            if(!passMatch){
+                return res.status(400).send("Invaild Credentials");
+            }else{
+                return res.status(200).send("Login Successfully");
             }
-        )}else{
-            return res.status(200).send( req.body);
+        }else{
+            return res.status(400).send("Invaild Credentials 2");
         }
         
     } catch (error) {
@@ -75,12 +78,8 @@ app.post('/login',async (req,res)=>{
                 error
             }
         )
-        
     }
-//    const user = await userSchema.findOne(req.body);
-//    console.log(user);
-//    res.send(user);
-})
+});
 
 const port = process.env.Port || 8000;
 app.listen(port, () =>{
