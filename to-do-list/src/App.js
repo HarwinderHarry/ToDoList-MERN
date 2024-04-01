@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom'; 
 import LogIn from './Forms/LogIn';
 import SignUp from './Forms/SignUp';
+import Home from './Components/HomePage/Home';
 
 
 function App() {
@@ -37,7 +38,7 @@ function App() {
       <div className="auth-wrapper">
         <div className="auth-inner">
           <Routes>
-            {/* <Route exact path="/" element={<LogIn />} /> */}
+            <Route exact path="/" element={<Home /> } />
             <Route path="/log-in" element={<LogIn />} />
             <Route path="/sign-up" element={<SignUp />} />
           </Routes>

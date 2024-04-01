@@ -1,14 +1,24 @@
 import React,{useState} from 'react';
 import {Form , Button} from 'react-bootstrap';
 import './LogIn.css';
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
 
 const LogIn = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
 
     const handleLogin = (e) =>{
         e.preventDefault();
-        console.log ("email:" , email , "password:", password)
+        axios
+        .post("http://localhost:8080/login", { email, password })
+        .then((result) => {console.log(result)
+        navigate('/home')
+        })
+        .catch(err=> console.log(err))
+        // console.log ("email:" , email , "password:", password)
     };
   return (
     <div id='loginFrom'>
