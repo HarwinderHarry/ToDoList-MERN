@@ -18,7 +18,7 @@ const LogIn = () => {
         </div>
         <section id='loginStart'>
             <h2>Log in</h2>
-        <Form onSubmit={handleLogin}>
+        <Form onSubmit={handleLogin} action='/login' method='post'>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Control type="email" placeholder="Enter email" value={email} onChange={(e)=>setEmail(e.target.value) } required/>
       </Form.Group>
