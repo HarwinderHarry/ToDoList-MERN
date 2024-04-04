@@ -1,0 +1,36 @@
+div#MainHome {
+    width: 95%;
+    margin: 0 auto;
+}
+
+#MainHome .mainBox {
+    box-shadow: 1px 1px 12px #0000002e;
+    border-radius: 10px;
+    padding:15px 30px;
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+#MainHome .mainBox .vectorArea img {
+    width: 90%;
+}
+
+#MainHome .mainBox .textArea {
+    padding: 0 50px;
+}
+
+#MainHome .mainBox .textArea h1{
+    font-size: 44px;
+    color: var(--text-color);
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+#MainHome .mainBox .textArea h5{
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 20px;
+}

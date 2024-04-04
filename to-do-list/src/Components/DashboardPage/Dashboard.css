@@ -10,6 +10,16 @@
     font-size: 30px;
 }
 
+li.MuiListItem-root.MuiListItem-gutters.css-1nxmd3h-MuiListItem-root {
+    transition: all 0.5s;
+    margin-bottom: 20px;
+}
+
+li.MuiListItem-root.MuiListItem-gutters.css-1nxmd3h-MuiListItem-root:hover{
+    background-color: var(--brown-color);
+    color: white;
+}
+
 .css-hyum1k-MuiToolbar-root {
     min-height: 80px !important;
 }
@@ -31,11 +41,43 @@ button.nav-btn{
     margin: 30px 0;
 }
 
-span.plusIcon {
+button.nav-btn span.plusIcon {
     margin-left: 10px;
 }
 
-span.plusIcon svg {
+button.nav-btn span.plusIcon svg {
     color: var(--brown-color);
+    font-size: 32px;
+}
+
+.headerAlignCust {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header.MuiPaper-root {
+    background-color:var(--gold-color);
+}
+
+button.header-btn{
+    background-color: var(--brown-color);
+    color: white;
+    width: 15%;
+    transition: all 0.5s;
+    padding: 10px 0;
+}
+
+button.header-btn:hover{
+    background-color: white;
+    color: var(--brown-color);
+}
+
+button.header-btn span.plusIcon {
+    margin-left: 10px;
+}
+
+button.header-btn span.plusIcon svg {
+    color: var(--gold-color);
     font-size: 32px;
 }

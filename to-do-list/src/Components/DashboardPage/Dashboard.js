@@ -112,9 +112,12 @@ function Dashboard(props) {
           >
             <MenuIcon />
           </IconButton>
+          <div className='headerAlignCust'>
           <Typography variant="h6" noWrap component="div">
             TO-DO List
           </Typography>
+          <Button className='header-btn'>Add Task <span className='plusIcon'><AddCircleIcon/></span></Button>
+          </div>
         </Toolbar>
       </AppBar>
       <Box
