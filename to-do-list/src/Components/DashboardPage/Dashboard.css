@@ -1,0 +1,41 @@
+.MuiToolbar-root.MuiToolbar-gutters img {
+    max-width: 40px;
+    width: 35px;
+    margin-right: 10px;
+}
+
+.MuiToolbar-root.MuiToolbar-gutters h4 {
+    color: var(--brown-color);
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.css-hyum1k-MuiToolbar-root {
+    min-height: 80px !important;
+}
+
+#navInnerBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+button.nav-btn{
+    color: var(--text-color);
+    width: 76%;
+    padding: 12px 0;
+    font-size: 20px;
+    text-transform: capitalize;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px #0000001c;
+    margin: 30px 0;
+}
+
+span.plusIcon {
+    margin-left: 10px;
+}
+
+span.plusIcon svg {
+    color: var(--brown-color);
+    font-size: 32px;
+}

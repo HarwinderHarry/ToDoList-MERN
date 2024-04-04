@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {Routes, Route, useNavigate} from 'react-router-dom'; 
+import './Dashboard.css'
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -21,8 +22,10 @@ import AssignmentIcon from '@mui/icons-material/Assignment';
 import Active from '../ActivePage/Active';
 import Complete from '../CompletePage/Complete';
 import MainHome from '../HomePage/MainHome';
+import Button from '@mui/material/Button';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 
-const drawerWidth = 240;
+const drawerWidth = 280;
 
 function Dashboard(props) {
   const { window } = props;
@@ -48,8 +51,14 @@ function Dashboard(props) {
 
   const drawer = (
     <div>
-      <Toolbar />
-      <Divider />
+      <Toolbar>
+        <img src='/images/Mark.png' alt='Logo'/>
+       <h4>To-Do App</h4>
+      </Toolbar>
+      <Divider />  
+      <div id='navInnerBtn'>
+      <Button className='nav-btn'>Add Task <span className='plusIcon'><AddCircleIcon/></span></Button>
+        </div>   
       <List>
       <ListItem disablePadding onClick={()=> navigate("/")}>
             <ListItemButton>
@@ -104,7 +113,7 @@ function Dashboard(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Responsive drawer
+            TO-DO List
           </Typography>
         </Toolbar>
       </AppBar>
@@ -146,12 +155,6 @@ function Dashboard(props) {
         sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
       >
         <Toolbar />
-        {/* <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
-          enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
-          imperdiet
-        </Typography> */}
 <Routes>
             <Route exact path="/" element={<MainHome /> } />
             <Route path="/active" element={<Active />} />
