@@ -1,10 +1,9 @@
 import React from 'react';
 import './MainHome.css';
-import { Box, Grid } from '@mui/material';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import WatchLaterIcon from '@mui/icons-material/WatchLater';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
-import {List, ListItem, ListItemButton, ListItemIcon, ListItemText} from '@mui/material';
+import {Box, Grid, List, ListItem, ListItemButton, ListItemIcon, ListItemText} from '@mui/material';
 
 const MainHome = () => {
   return (
