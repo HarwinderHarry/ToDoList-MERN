@@ -59,7 +59,7 @@ function Dashboard(props) {
       <div id='navInnerBtn'>
       <Button className='nav-btn'>Add Task <span className='plusIcon'><AddCircleIcon/></span></Button>
         </div>   
-      <List>
+      <List className='dashboardList'>
       <ListItem disablePadding onClick={()=> navigate("/")}>
             <ListItemButton>
               <ListItemIcon>

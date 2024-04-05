@@ -10,12 +10,12 @@
     font-size: 30px;
 }
 
-li.MuiListItem-root.MuiListItem-gutters.css-1nxmd3h-MuiListItem-root {
+.dashboardList li.MuiListItem-root.MuiListItem-gutters.css-1nxmd3h-MuiListItem-root {
     transition: all 0.5s;
     margin-bottom: 20px;
 }
 
-li.MuiListItem-root.MuiListItem-gutters.css-1nxmd3h-MuiListItem-root:hover{
+.dashboardList li.MuiListItem-root.MuiListItem-gutters.css-1nxmd3h-MuiListItem-root:hover{
     background-color: var(--brown-color);
     color: white;
 }

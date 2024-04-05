@@ -45,8 +45,18 @@ div#MainHome .topHeadings {
     justify-content: space-between;
 }
 
+div#MainHome .topHeadings h2 {
+    font-family: 'Fira Sans', sans-serif !important;
+    font-weight: 700;
+}
+
+div#MainHome .topHeadings h4 {
+    font-size: 18px;
+    color: var(--brown-color);
+}
+
 .tasksArea {
-    height: 400px;
+    height: 460px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -56,15 +66,58 @@ div#MainHome .topHeadings {
 .tasksArea h3 {
     text-align: center;
     color: black;
-    font-size: 15px;
+    font-size: 18px;
+    margin-top: 12px;
 }
 
-.tasksArea .box1 {
-    border: 1px solid red;
+.tasksArea .box1, .tasksArea .box2 {
+    background-color: var(--brown-color);
     height: 180px;
     width: 180px;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
     align-items: center;
+    border-radius: 10px;
+    padding: 20px 0;
+}
+
+.tasksArea .box2{
+    background-color: var(--gold-color);
+}
+
+.tasksArea .box1 .icon svg, .tasksArea .box2 .icon svg{
+    font-size: 45px;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.tasksArea .box1 .text1,.tasksArea .box2 .text1 {
+    color: white;
+    font-size: 32px;
+}
+.tasksArea .box1 .text2, .tasksArea .box2 .text2 {
+    color: white;
+    font-size: 16px;
+}
+
+.ourLists {
+    margin-top: 15px;
+}
+
+.ourLists li {
+    width: 818px;
+    box-shadow: 0px 1px 6px #0000001f;
+    border-radius: 5px;
+    padding: 10px 0;
+}
+
+.ourLists li svg{
+    color: var(--gold-color);
+    margin-right: 20px;
+    font-size: 25px;
+}
+
+.ourLists .listData {
+    color: black;
+    font-size: 20px;
 }

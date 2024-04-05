@@ -3,6 +3,8 @@ import './MainHome.css';
 import { Box, Grid } from '@mui/material';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import WatchLaterIcon from '@mui/icons-material/WatchLater';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import {List, ListItem, ListItemButton, ListItemIcon, ListItemText} from '@mui/material';
 
 const MainHome = () => {
   return (
@@ -23,6 +25,21 @@ const MainHome = () => {
         <div className='topHeadings'>
           <h2>Today's Task</h2>
           <h4>Delete All</h4>
+        </div>
+        <div className='ourLists'>
+           <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+     <ListItem disablePadding>
+            <ListItemButton >
+              <ListItemIcon>
+                <CheckCircleOutlineIcon />
+               <div className='listData'>
+                hello demo text
+               </div>
+              </ListItemIcon>
+              <ListItemText/>
+            </ListItemButton>
+          </ListItem>
+         </List>
         </div>
         </Grid>
         <Grid item xs={3}>
