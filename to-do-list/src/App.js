@@ -1,13 +1,15 @@
 import './App.css';
 import {BrowserRouter} from 'react-router-dom'; 
-import Dashboard from './Components/DashboardPage/Dashboard';
+import Welcome from './Components/WelComePage/Welcome';
+// import Dashboard from './Components/DashboardPage/Dashboard';
 
 
 function App() {
   return (
     <div>
       <BrowserRouter>
-      <Dashboard/>
+      {/* <Dashboard/> */}
+      <Welcome />
       </BrowserRouter>
     </div>
   );

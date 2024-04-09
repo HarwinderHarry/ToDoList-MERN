@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {useState} from 'react';
 import {Routes, Route, useNavigate} from 'react-router-dom'; 
 import './Dashboard.css'
 import PropTypes from 'prop-types';
@@ -24,6 +24,8 @@ import Complete from '../CompletePage/Complete';
 import MainHome from '../HomePage/MainHome';
 import Button from '@mui/material/Button';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import Swal from 'sweetalert2'
 
 const drawerWidth = 280;
 
@@ -57,7 +59,7 @@ function Dashboard(props) {
       </Toolbar>
       <Divider />  
       <div id='navInnerBtn'>
-      <Button className='nav-btn'>Add Task <span className='plusIcon'><AddCircleIcon/></span></Button>
+      <Button className='nav-btn' onClick={()=>handleClickOpen()}>Add Task  <span className='plusIcon'><AddCircleIcon/></span></Button>
         </div>   
       <List className='dashboardList'>
       <ListItem disablePadding onClick={()=> navigate("/")}>
@@ -92,7 +94,36 @@ function Dashboard(props) {
   // Remove this const when copying and pasting into your project.
   const container = window !== undefined ? () => window().document.body : undefined;
 
+  function handleClickOpen()
+  {
+    
+    Swal.fire({
+      html:
+      '<form id="myForm">' +
+      '<input id="input1" class="swal2-input" placeholder="Input field 1">' +
+      '<input id="input2" class="swal2-input" placeholder="Input field 2">' +
+      '</form>',
+      showCancelButton: true,
+      confirmButtonText: 'Submit',
+      cancelButtonText: 'Cancel',
+      preConfirm: () => {
+          const input1 = Swal.getPopup().querySelector('#input1').value;
+          const input2 = Swal.getPopup().querySelector('#input2').value;
+          return [input1, input2];
+      }
+  }).then((result) => {
+      if (result.isConfirmed) {
+          const values = result.value;
+      console.log(values);
+      }
+  });
+  
+    
+    
+
+  }
   return (
+    
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar
@@ -116,7 +147,7 @@ function Dashboard(props) {
           <Typography variant="h6" noWrap component="div">
             TO-DO List
           </Typography>
-          <Button className='header-btn'>Add Task <span className='plusIcon'><AddCircleIcon/></span></Button>
+          <Button className='header-btn'>Sign Out <span className='plusIcon'><ExitToAppIcon /></span></Button>
           </div>
         </Toolbar>
       </AppBar>
@@ -165,14 +196,12 @@ function Dashboard(props) {
           </Routes>
       </Box>
     </Box>
+ 
+    
   );
 }
 
 Dashboard.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * Remove this when copying and pasting into your project.
-   */
   window: PropTypes.func,
 };
 

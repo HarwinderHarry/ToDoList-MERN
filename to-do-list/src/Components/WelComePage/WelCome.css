@@ -1,0 +1,78 @@
+#firstPage {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image:url('/public/images/backgroundImage.png');
+    background-color: #EDB046;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#firstPage section.firstText {
+    background-color: white;
+    width: 50%;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+#firstPage section.firstText h1 {
+    font-size: 80px;
+    color: var(--brown-color);
+    margin-bottom: -10px;
+}
+
+#firstPage section.firstText h3 {
+    color: var(--brown-color);
+    font-size: 35px;
+}
+
+.two-btns {
+    margin-top: 20px;
+}
+
+
+#firstPage section.firstText button.oneBtn {
+    background-color: white;
+    width: 140px;
+    padding: 10px 0;
+    border: none;
+    border-radius: 10px;
+    margin-right: 15px;
+    border: 2px solid var(--brown-color);
+    font-size: 18px;
+    transition: all 0.5s;
+    &:hover{
+        background-color: var(--brown-color);
+        color: white;
+    }
+}
+
+#firstPage section.firstText button.twoBtn
+{
+    background-color: white;
+    width: 140px;
+    padding: 10px 0;
+    border: none;
+    border-radius: 10px;
+    margin-left: 15px;
+    border: 2px solid var(--brown-color);
+    font-size: 18px;
+    transition: all 0.5s;
+    &:hover{
+        background-color: var(--brown-color);
+        color: white;
+    }
+}
+
+#firstPage section.firstText img {
+    width: 66px;
+    margin-bottom: 20px;
+}

@@ -58,6 +58,7 @@ button.nav-btn span.plusIcon svg {
 }
 header.MuiPaper-root {
     background-color:var(--gold-color);
+    z-index: 99;
 }
 
 button.header-btn{
