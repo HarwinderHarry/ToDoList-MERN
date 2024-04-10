@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import db from "./ConnectDB/db.js";
 import dotenv from "dotenv";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import userSchema from "./Models/userSchema.js";
 
 const app = express();
@@ -25,7 +25,7 @@ app.get("/", (req, res) => {
 app.post("/register", async (req, res) => {
   try {
     const saltRounds = 10;
-    const { name, email, password, phone, gender } = req.body;
+    const { name, email, password, phone} = req.body;
     const hashpswd = await bcrypt.hash(password, saltRounds);
 
     let data = userSchema();
@@ -34,7 +34,6 @@ app.post("/register", async (req, res) => {
     data.email = email;
     data.password = hashpswd;
     data.phone = phone;
-    data.gender = gender;
 
     let result = await data.save();
 

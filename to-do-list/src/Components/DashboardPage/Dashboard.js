@@ -26,6 +26,7 @@ import Button from '@mui/material/Button';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import Swal from 'sweetalert2'
+import { Outlet } from "react-router-dom";
 
 const drawerWidth = 280;
 
@@ -62,7 +63,7 @@ function Dashboard(props) {
       <Button className='nav-btn' onClick={()=>handleClickOpen()}>Add Task  <span className='plusIcon'><AddCircleIcon/></span></Button>
         </div>   
       <List className='dashboardList'>
-      <ListItem disablePadding onClick={()=> navigate("/")}>
+      <ListItem disablePadding onClick={()=> navigate("/dashboard")}>
             <ListItemButton>
               <ListItemIcon>
                 <Home />
@@ -189,11 +190,12 @@ function Dashboard(props) {
         sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
       >
         <Toolbar />
-<Routes>
+        <Outlet />
+{/* <Routes>
             <Route exact path="/" element={<MainHome /> } />
             <Route path="/active" element={<Active />} />
             <Route path="/complete" element={<Complete />} />
-          </Routes>
+          </Routes> */}
       </Box>
     </Box>
  

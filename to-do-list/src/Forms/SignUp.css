@@ -21,17 +21,19 @@ div#signupFrom .pageHeading h1 {
     line-height: 75px;
     color: var(--brown-color);
     font-weight: 700;
+    text-align: center;
 }
 div#signupFrom .pageHeading h4{
     font-size: 20px;
     line-height: 25px;
     color: var(--brown-color);
     font-weight: 500;
+    text-align: center;
 }
 
 section#signupStart {
     width: 40%;
-    height: 650px;
+    height: 620px;
     min-height: 610px;
     background-color: var(--gold-color);
     padding: 38px 55px;
@@ -44,12 +46,21 @@ section#signupStart h2 {
     color: var(--white-color);
     font-weight: 700;
     margin-bottom: 40px;
+    text-align: center;
 }
 
-section#signupStart form input.form-control {
+section#signupStart form{
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    flex-direction: column;
+}
+section#signupStart form input {
+    width: 80%;
+    border-radius: 5px;
     box-shadow: 2px 2px 8px #0000002b;
     border: none;
-    padding: 12px 20px;
+    padding: 18px 20px;
     margin-bottom:30px;
 }
 
@@ -61,19 +72,20 @@ line-height: 25px;
 font-family: 'Fira Sans', sans-serif !important;
 }
 
-section#signupStart form button.btn.btn-primary {
+section#signupStart form button.signupBtn {
     border-radius: 12px;
     background-color: var(--brown-color);
     border: 0;
     box-shadow: 2px 2px 6px #00000036;
     width: 35%;
-    padding: 10px 0;
+    padding: 15px 0;
     margin: 10px 0;
-    font-size: 14px;
+    font-size: 16px;
+    color: white;
 }
 
 section#signupStart form p.last-line {
-    font-size: 12px;
+    font-size: 14px;
     color: var(--white-color);
     margin-top: 8px;
 }

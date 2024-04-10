@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import {Form , Button} from 'react-bootstrap';
+// import {Form , Button} from 'react-bootstrap';
 import './LogIn.css';
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -15,7 +15,7 @@ const LogIn = () => {
         axios
         .post("http://localhost:8080/login", { email, password })
         .then((result) => {console.log(result)
-        navigate('/home')
+        navigate('/dashboard')
         })
         .catch(err=> console.log(err))
         // console.log ("email:" , email , "password:", password)
@@ -27,8 +27,17 @@ const LogIn = () => {
             <h4>Start organizing your life day by day</h4>
         </div>
         <section id='loginStart'>
-            <h2>Log in</h2>
-        <Form onSubmit={handleLogin} action='/login' method='post'>
+        <h2>Log in</h2>
+          <form onSubmit={handleLogin} action='/login' method='post'>
+            <input type="email" placeholder="Enter email" value={email} onChange={(e)=>setEmail(e.target.value) } required />
+            <input type="password" placeholder="Password" value={password} onChange={(e)=>setPassword(e.target.value)}  required  />
+            <button type="submit" className='login-btn'>Login</button>
+            <p className="last-line">
+      Don’t have an account? <a href="/sign-up">Create here.</a>
+        </p>
+          </form>
+            
+        {/* <Form onSubmit={handleLogin} action='/login' method='post'>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Control type="email" placeholder="Enter email" value={email} onChange={(e)=>setEmail(e.target.value) } required/>
       </Form.Group>
@@ -42,7 +51,7 @@ const LogIn = () => {
       <p className="last-line">
       Don’t have an account? <a href="/sign-up">Create here.</a>
         </p>
-    </Form>
+    </Form> */}
         </section>
     </div>
   )

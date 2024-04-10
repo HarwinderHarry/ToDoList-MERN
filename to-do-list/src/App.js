@@ -1,6 +1,7 @@
 import './App.css';
 import {BrowserRouter} from 'react-router-dom'; 
-import Welcome from './Components/WelComePage/Welcome';
+// import Welcome from './Components/WelComePage/Welcome';
+import RouterCom from './Components/Router';
 // import Dashboard from './Components/DashboardPage/Dashboard';
 
 
@@ -9,7 +10,8 @@ function App() {
     <div>
       <BrowserRouter>
       {/* <Dashboard/> */}
-      <Welcome />
+      {/* <Welcome /> */}
+      <RouterCom />
       </BrowserRouter>
     </div>
   );

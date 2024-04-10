@@ -63,4 +63,4 @@ const MainHome = () => {
   )
 }
 
-export default MainHome
+export default MainHome;
