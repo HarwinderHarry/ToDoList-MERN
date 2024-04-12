@@ -19,14 +19,12 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import ChecklistIcon from '@mui/icons-material/Checklist';
 import AssignmentIcon from '@mui/icons-material/Assignment';
-import Active from '../ActivePage/Active';
-import Complete from '../CompletePage/Complete';
-import MainHome from '../HomePage/MainHome';
 import Button from '@mui/material/Button';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import Swal from 'sweetalert2'
 import { Outlet } from "react-router-dom";
+import axios from "axios";
 
 const drawerWidth = 280;
 
@@ -34,6 +32,7 @@ function Dashboard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [isClosing, setIsClosing] = React.useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   const handleDrawerClose = () => {
     setIsClosing(true);
@@ -49,6 +48,16 @@ function Dashboard(props) {
       setMobileOpen(!mobileOpen);
     }
   };
+
+const handleSignout = async () => {
+  if(isLoggedIn){
+    await axios.post('http://localhost:8080/signout');
+    setIsLoggedIn(false);
+    console.log("ok");
+  }else{
+    console.log("cancel");
+  }
+}
 
   const navigate = useNavigate();
 
@@ -148,7 +157,7 @@ function Dashboard(props) {
           <Typography variant="h6" noWrap component="div">
             TO-DO List
           </Typography>
-          <Button className='header-btn'>Sign Out <span className='plusIcon'><ExitToAppIcon /></span></Button>
+          <Button className='header-btn' onClick={handleSignout}>Sign Out <span className='plusIcon'><ExitToAppIcon /></span></Button>
           </div>
         </Toolbar>
       </AppBar>
@@ -191,11 +200,6 @@ function Dashboard(props) {
       >
         <Toolbar />
         <Outlet />
-{/* <Routes>
-            <Route exact path="/" element={<MainHome /> } />
-            <Route path="/active" element={<Active />} />
-            <Route path="/complete" element={<Complete />} />
-          </Routes> */}
       </Box>
     </Box>
  

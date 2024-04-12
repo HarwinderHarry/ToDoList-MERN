@@ -14,7 +14,7 @@ const LogIn = () => {
         e.preventDefault();
         axios
         .post("http://localhost:8080/login", { email, password })
-        .then((result) => {console.log(result)
+        .then((result) => {
         navigate('/dashboard')
         })
         .catch(err=> console.log(err))

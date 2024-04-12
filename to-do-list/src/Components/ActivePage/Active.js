@@ -1,9 +1,10 @@
 import React from 'react';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import {Box, Grid, List, ListItem, ListItemButton, ListItemIcon, ListItemText} from '@mui/material';
+import './Active.css';
 
 const Active = () => {
-  return (
+  return ( 
     <div id='active'>
       <Box sx={{ flexGrow: 1 }} className="activeList">
     <Grid container spacing={2}>

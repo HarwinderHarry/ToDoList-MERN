@@ -15,13 +15,16 @@ const SignUp = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:8080/register", { name, email, password, phone})
+      .post("http://localhost:8080/register", { name, email, password, phone })
       .then((result) => {
         console.log(result)
         navigate('/log-in')
       })
-      .catch(err => console.log(err))
+      .catch(
+        err => alert("User Already Exist")
+      );
     // console.log ("email:" , email , "password:", password)
+
   };
   return (
     <div id="signupFrom">

@@ -26,6 +26,10 @@ app.post("/register", async (req, res) => {
   try {
     const saltRounds = 10;
     const { name, email, password, phone} = req.body;
+    const UserExist = await userSchema.findOne({ email});
+    if (UserExist) {
+      return res.status(400).send("User Already Exist");
+    }
     const hashpswd = await bcrypt.hash(password, saltRounds);
 
     let data = userSchema();
@@ -77,6 +81,9 @@ app.post("/login", async (req, res) => {
     });
   }
 });
+
+//Signout
+
 
 const port = process.env.Port || 8000;
 app.listen(port, () => {
