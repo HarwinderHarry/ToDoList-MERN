@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Routes, Route, useNavigate} from 'react-router-dom'; 
+import {useNavigate} from 'react-router-dom'; 
 import './Dashboard.css'
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
@@ -22,17 +22,24 @@ import AssignmentIcon from '@mui/icons-material/Assignment';
 import Button from '@mui/material/Button';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
-import Swal from 'sweetalert2'
+import TextField from '@mui/material/TextField';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
+// import Swal from 'sweetalert2'
 import { Outlet } from "react-router-dom";
-import axios from "axios";
-
+import { useDispatch } from "react-redux";
+import { addNewTodo } from '../../redux/actions';
 const drawerWidth = 280;
 
 function Dashboard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [isClosing, setIsClosing] = React.useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  // const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [inputText,setInputtext] = useState("");
+  const dispatch = useDispatch();
 
   const handleDrawerClose = () => {
     setIsClosing(true);
@@ -49,17 +56,28 @@ function Dashboard(props) {
     }
   };
 
-const handleSignout = async () => {
-  if(isLoggedIn){
-    await axios.post('http://localhost:8080/signout');
-    setIsLoggedIn(false);
-    console.log("ok");
-  }else{
-    console.log("cancel");
-  }
-}
-
   const navigate = useNavigate();
+
+
+
+  // PopBox //
+
+  const [open, setOpen] = React.useState(false);
+  
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const onInputChange = (e) =>{
+      console.log(e);
+      setInputtext(e);
+  }
+
 
   const drawer = (
     <div>
@@ -67,10 +85,63 @@ const handleSignout = async () => {
         <img src='/images/Mark.png' alt='Logo'/>
        <h4>To-Do App</h4>
       </Toolbar>
-      <Divider />  
-      <div id='navInnerBtn'>
-      <Button className='nav-btn' onClick={()=>handleClickOpen()}>Add Task  <span className='plusIcon'><AddCircleIcon/></span></Button>
-        </div>   
+      <Divider />              
+        <div id='navInnerBtn'>
+      <Button className='nav-btn' onClick={handleClickOpen}>
+      Add Task
+      <span className='plusIcon'><AddCircleIcon/></span>
+      </Button>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        PaperProps={{
+          component: 'form',
+          onSubmit: (event) => {
+            event.preventDefault();
+            const formData = new FormData(event.currentTarget);
+            const formJson = Object.fromEntries(formData.entries());
+            const text = formJson.text;
+            const body = formJson.message;
+            console.log(text , body);
+           dispatch(addNewTodo());
+            handleClose();
+          },
+        }}
+      >
+        <DialogTitle>Add Your Task</DialogTitle>
+        <DialogContent>
+          <TextField
+            autoFocus
+            required
+            margin="dense"
+            name="text"
+            label="Title"
+            type="text"
+            fullWidth
+            variant="standard"
+          onChange={(e)=>{onInputChange(e.target.value)}}
+          />
+          <TextField
+            autoFocus
+            required
+            margin="dense"
+            name="message"
+            label="Body"
+            type="textarea"
+            multiline
+          rows={4}
+            fullWidth
+            variant="standard"
+            onChange={(e)=>{onInputChange(e.target.value)}}
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>Cancel</Button>
+          <Button type="submit">Add</Button>
+        </DialogActions>
+      </Dialog>
+    </div>
+            
       <List className='dashboardList'>
       <ListItem disablePadding onClick={()=> navigate("/dashboard")}>
             <ListItemButton>
@@ -94,6 +165,7 @@ const handleSignout = async () => {
                 <ChecklistIcon />
               </ListItemIcon>
               <ListItemText>Complete </ListItemText>
+              
             </ListItemButton>
           </ListItem>
 
@@ -104,34 +176,31 @@ const handleSignout = async () => {
   // Remove this const when copying and pasting into your project.
   const container = window !== undefined ? () => window().document.body : undefined;
 
-  function handleClickOpen()
-  {
+  // function handleClickOpen()
+  // {
     
-    Swal.fire({
-      html:
-      '<form id="myForm">' +
-      '<input id="input1" class="swal2-input" placeholder="Input field 1">' +
-      '<input id="input2" class="swal2-input" placeholder="Input field 2">' +
-      '</form>',
-      showCancelButton: true,
-      confirmButtonText: 'Submit',
-      cancelButtonText: 'Cancel',
-      preConfirm: () => {
-          const input1 = Swal.getPopup().querySelector('#input1').value;
-          const input2 = Swal.getPopup().querySelector('#input2').value;
-          return [input1, input2];
-      }
-  }).then((result) => {
-      if (result.isConfirmed) {
-          const values = result.value;
-      console.log(values);
-      }
-  });
-  
-    
-    
+  //   Swal.fire({
+  //     html:
+  //     '<form id="myForm">' +
+  //     '<input id="input1" class="swal2-input" placeholder="Input field 1">' +
+  //     '<input id="input2" class="swal2-input" placeholder="Input field 2">' +
+  //     '</form>',
+  //     showCancelButton: true,
+  //     confirmButtonText: 'Submit',
+  //     cancelButtonText: 'Cancel',
+  //     preConfirm: () => {
+  //         const input1 = Swal.getPopup().querySelector('#input1').value;
+  //         const input2 = Swal.getPopup().querySelector('#input2').value;
+  //         return [input1, input2];
+  //     }
+  // }).then((result) => {
+  //     if (result.isConfirmed) {
+  //         const values = result.value;
+  //     console.log(values);
+  //     }
+  // });
+  // }
 
-  }
   return (
     
     <Box sx={{ display: 'flex' }}>
@@ -155,9 +224,9 @@ const handleSignout = async () => {
           </IconButton>
           <div className='headerAlignCust'>
           <Typography variant="h6" noWrap component="div">
-            TO-DO List
+            TO-DO List 
           </Typography>
-          <Button className='header-btn' onClick={handleSignout}>Sign Out <span className='plusIcon'><ExitToAppIcon /></span></Button>
+          <Button className='header-btn' >Sign Out <span className='plusIcon'><ExitToAppIcon /></span></Button>
           </div>
         </Toolbar>
       </AppBar>
@@ -182,6 +251,7 @@ const handleSignout = async () => {
           }}
         >
           {drawer}
+          
         </Drawer>
         <Drawer
           variant="permanent"
@@ -198,8 +268,10 @@ const handleSignout = async () => {
         component="main"
         sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
       >
+        
         <Toolbar />
         <Outlet />
+        
       </Box>
     </Box>
  

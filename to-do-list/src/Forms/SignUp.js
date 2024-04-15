@@ -65,68 +65,6 @@ const SignUp = () => {
             Already have an account? <a href="/log-in">Sign in here.</a>
           </p>
         </form>
-        {/* <Form onSubmit={handleLogin}>
-          <h2>SignUp</h2>
-          <Form.Group className="mb-3" controlId="formBasictext">
-            <Form.Control
-              type="text"
-              placeholder="Enter your name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Control
-              type="email"
-              placeholder="Enter your email address"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Control
-              type="password"
-              placeholder="Enter your Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="formBasicnumber">
-            <Form.Control
-              type="tel"
-              pattern="[0-9]{10}"
-              maxLength={12}
-              placeholder="Enter your phone number"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-              required
-            />
-          </Form.Group>
-          <Form.Group
-            className="mb-3 radio-btns"
-            controlId="formBasicEmail"
-            value={gender}
-            onChange={(e) => setGender(e.target.value)}
-            required
-          >
-            <Form.Label>Gender</Form.Label>
-            <Form.Check type="radio" id="radio1" label="Male" />
-            <Form.Check type="radio" id="radio2" label="Female" />
-            <Form.Check type="radio" id="radio3" label="Others" />
-          </Form.Group>
-          <Button variant="primary" type="submit">
-            Sign Up
-          </Button>
-          <p className="last-line">
-            Already have an account? <a href="/log-in">Sign in here.</a>
-          </p>
-        </Form> */}
       </section>
     </div>
   );

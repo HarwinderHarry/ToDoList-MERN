@@ -16,6 +16,7 @@ const LogIn = () => {
         .post("http://localhost:8080/login", { email, password })
         .then((result) => {
         navigate('/dashboard')
+    
         })
         .catch(err=> console.log(err))
         // console.log ("email:" , email , "password:", password)
@@ -29,29 +30,13 @@ const LogIn = () => {
         <section id='loginStart'>
         <h2>Log in</h2>
           <form onSubmit={handleLogin} action='/login' method='post'>
-            <input type="email" placeholder="Enter email" value={email} onChange={(e)=>setEmail(e.target.value) } required />
+            <input type="email" name='email' placeholder="Enter email" value={email} onChange={(e)=>setEmail(e.target.value) } required />
             <input type="password" placeholder="Password" value={password} onChange={(e)=>setPassword(e.target.value)}  required  />
             <button type="submit" className='login-btn'>Login</button>
             <p className="last-line">
       Don’t have an account? <a href="/sign-up">Create here.</a>
         </p>
           </form>
-            
-        {/* <Form onSubmit={handleLogin} action='/login' method='post'>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Control type="email" placeholder="Enter email" value={email} onChange={(e)=>setEmail(e.target.value) } required/>
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Control type="password" placeholder="Password" value={password} onChange={(e)=>setPassword(e.target.value)}  required />
-      </Form.Group>
-      <Button variant="primary" type="submit">
-        Log In
-      </Button>
-      <p className="last-line">
-      Don’t have an account? <a href="/sign-up">Create here.</a>
-        </p>
-    </Form> */}
         </section>
     </div>
   )

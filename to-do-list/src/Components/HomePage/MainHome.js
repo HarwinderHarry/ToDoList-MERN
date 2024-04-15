@@ -6,6 +6,8 @@ import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import {Box, Grid, List, ListItem, ListItemButton, ListItemIcon, ListItemText} from '@mui/material';
 
 const MainHome = () => {
+
+  
   return (
     <div id='MainHome'>
       <div className='mainBox'>
@@ -32,7 +34,9 @@ const MainHome = () => {
               <ListItemIcon>
                 <CheckCircleOutlineIcon />
                <div className='listData'>
-                hello demo text
+               <div>
+      Hello Main home
+               </div>
                </div>
               </ListItemIcon>
               <ListItemText/>
