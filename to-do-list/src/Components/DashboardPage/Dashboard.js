@@ -39,6 +39,7 @@ function Dashboard(props) {
   const [isClosing, setIsClosing] = React.useState(false);
   // const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [inputText,setInputtext] = useState("");
+  const [inputBody,setBodyText] = useState("");
   const dispatch = useDispatch();
 
   const handleDrawerClose = () => {
@@ -76,13 +77,14 @@ function Dashboard(props) {
   const onInputChange = (e) =>{
       console.log(e);
       setInputtext(e);
+      setBodyText(e);
   }
 
 
   const drawer = (
     <div>
       <Toolbar>
-        <img src='/images/Mark.png' alt='Logo'/>
+        <img src='/images/mark.png' alt='Logo'/>
        <h4>To-Do App</h4>
       </Toolbar>
       <Divider />              
@@ -98,12 +100,9 @@ function Dashboard(props) {
           component: 'form',
           onSubmit: (event) => {
             event.preventDefault();
-            const formData = new FormData(event.currentTarget);
-            const formJson = Object.fromEntries(formData.entries());
-            const text = formJson.text;
-            const body = formJson.message;
-            console.log(text , body);
-           dispatch(addNewTodo());
+
+            dispatch(addNewTodo({inputText , inputBody}));
+            
             handleClose();
           },
         }}
@@ -119,7 +118,8 @@ function Dashboard(props) {
             type="text"
             fullWidth
             variant="standard"
-          onChange={(e)=>{onInputChange(e.target.value)}}
+            value={inputText}
+          onChange={(e)=>{setInputtext(e.target.value)}}
           />
           <TextField
             autoFocus
@@ -129,10 +129,11 @@ function Dashboard(props) {
             label="Body"
             type="textarea"
             multiline
-          rows={4}
+          rows={5}
             fullWidth
             variant="standard"
-            onChange={(e)=>{onInputChange(e.target.value)}}
+            value={inputBody}
+            onChange={(e)=>{setBodyText(e.target.value)}}
           />
         </DialogContent>
         <DialogActions>
@@ -175,31 +176,6 @@ function Dashboard(props) {
 
   // Remove this const when copying and pasting into your project.
   const container = window !== undefined ? () => window().document.body : undefined;
-
-  // function handleClickOpen()
-  // {
-    
-  //   Swal.fire({
-  //     html:
-  //     '<form id="myForm">' +
-  //     '<input id="input1" class="swal2-input" placeholder="Input field 1">' +
-  //     '<input id="input2" class="swal2-input" placeholder="Input field 2">' +
-  //     '</form>',
-  //     showCancelButton: true,
-  //     confirmButtonText: 'Submit',
-  //     cancelButtonText: 'Cancel',
-  //     preConfirm: () => {
-  //         const input1 = Swal.getPopup().querySelector('#input1').value;
-  //         const input2 = Swal.getPopup().querySelector('#input2').value;
-  //         return [input1, input2];
-  //     }
-  // }).then((result) => {
-  //     if (result.isConfirmed) {
-  //         const values = result.value;
-  //     console.log(values);
-  //     }
-  // });
-  // }
 
   return (
     

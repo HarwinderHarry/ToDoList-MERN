@@ -6,9 +6,9 @@ import bcrypt from "bcryptjs";
 // import jwt from  "jsonwebtoken";
 import bodyParser from "body-parser";
 import userSchema from "./Models/userSchema.js";
+import { get } from "mongoose";
 
 
-// const SECRET_KEY = "jwt-secretkey";
 const app = express();
 dotenv.config();
 app.use(bodyParser.json());
@@ -67,18 +67,12 @@ app.post("/login", async (req, res) => {
       return res.status(400).send("Please Add the correct details");
     }
     const userMatch = await userSchema.findOne({ email: email });
-    // console.log(userMatch);
+    console.log(userMatch);
     if (userMatch) {
       const passMatch = await bcrypt.compare(password, userMatch.password);
       if (!passMatch) {
         return res.status(400).send("Incorrect email or password..!!");
       } else {
-        // const token = jwt.sign({userMatch}, SECRET_KEY, {expiresIn: '1hr'}, (err, token)=>{
-        //   if(err){
-        //     res.status(400).send("token not found");
-        //   }
-        //   res.status(200).send({userMatch , myToken : token});
-        // })
         return res.status(200).send("Login Successfully");
       }
     } else {
@@ -94,11 +88,15 @@ app.post("/login", async (req, res) => {
   }
 });
 
-//Signout
+//todoShow
+
+app.post('/todos', (req,res) =>{
+  console.log(req.body);
+})
 
 
 
-const port = process.env.Port || 8000;
+const port = process.env.PORT || 8000;
 app.listen(port, () => {
-  console.log("Server Running");
+  console.log("Server Running on port", port);
 });
