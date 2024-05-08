@@ -1,12 +1,27 @@
-import * as actionTypes from '../actions/type';
+const initialData = {
+  list : []
+}
 
-export const todosReducers = (state = [], action) => {
+
+const todosReducers = (state = initialData, action) => {
 
   switch (action.type){
-    case actionTypes.Addnew_TODO:
-    return [action.payload, ...state]
+    case "Addnew_TODO":
+    const { id,data} = action.payload;
+
+    return{
+      ...state,
+      list : [
+        ...state.list,
+        {
+          id:id,
+          data:data
+      }]
+    }
 
     default:
       return state;
   }
 }
+
+export default todosReducers;

@@ -1,21 +1,25 @@
-// import axios from "axios";
-// import { Addnew_TODO } from "./type";
-// const API_URL = 'https://localhost:8080';
-
-// export const addNewTodo = (data) => async (dispatch) => {
-//     try {
-//         // axios.post(`$(API_URL)/todos`, {data})
-//         const res = await axios.post(`${API_URL}/todos`, { data });
-//         dispatch({ type: Addnew_TODO, payload: res.data });
-//     } catch (error) {
-//         console.log('Error while calling addNewTodo API', error);
-//     }
-
-// }
+// ------ Define Actions ------ //
 
 export const addNewTodo = (data) => {
     return {
-        type:'AddNew-TODO',
-        payload:data
+        type:'Addnew_TODO',
+        payload:{
+            id : new Date().getTime().toString(),
+            data:data
+        }
     }
 }
+
+// export const deleteTodo = (data) => {
+//     return {
+//         type:'Delete-TODO',
+//         payload:data
+//     }
+// }
+
+// export const deleteAllTodo = (data) => {
+//     return {
+//         type:'DeleteAll-TODO',
+//         payload:data
+//     }
+// }

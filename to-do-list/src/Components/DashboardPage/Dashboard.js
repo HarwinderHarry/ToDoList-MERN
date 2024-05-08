@@ -30,7 +30,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 // import Swal from 'sweetalert2'
 import { Outlet } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addNewTodo } from '../../redux/actions';
+import { addNewTodo , deleteTodo , deleteAllTodo } from '../../redux/actions';
 const drawerWidth = 280;
 
 function Dashboard(props) {
@@ -102,6 +102,8 @@ function Dashboard(props) {
             event.preventDefault();
 
             dispatch(addNewTodo({inputText , inputBody}));
+            setInputtext('');
+            setBodyText('');
             
             handleClose();
           },
